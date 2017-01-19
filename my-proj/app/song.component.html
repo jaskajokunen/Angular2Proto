@@ -1,0 +1,20 @@
+<div id="song_container">
+	<div>
+		<label>Artist name: </label> <input #artistName />
+		<label>Song name: </label> <input #songName />
+		<button (click)="add(artistName.value, songName.value); artistName.value=''; songName.value=''">
+			Add
+		</button>
+	</div>
+	<div *ngFor="let song of songs" class="item_container">
+		<div class="text_container"> 
+			<p>{{song.artist}}</p>
+			<p>{{song.name}}</p>
+			<p>{{song.id}}</p>
+		</div>
+		<div class="delete_button_container">
+			<button class="delete" (click)="delete(song); $event.stopPropagation()">X</button>
+		</div>
+	</div>
+</div>
+ 
